@@ -1,10 +1,20 @@
+from Models.User import User
+from Models.UserManager import UserManager
+
 class LoginSystem:
 
     def Login(self):
         pass
 
     def Register(self):
-        pass
+        print("Register to Food app")
+        name=input("Your name: ")
+        email=input("Your email: ")
+        mobile=int(input("Your mobile number: "))
+        password=input("Your password: ")
+        
+        user=User(name,email,mobile,password)
+        
 
     def GuestLogin(self):
         pass
