@@ -1,1 +1,3 @@
-#Hello world
+from FoodApp import FoodApp
+
+FoodApp.Init()
