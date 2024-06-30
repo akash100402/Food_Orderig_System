@@ -13,6 +13,7 @@ class LoginSystem:
 
         if user is not None:
             print("User logged in successfully")
+            
         else:
             print("Invalid email or password. Try again...")
 
@@ -28,20 +29,17 @@ class LoginSystem:
         user = User(name, mobile, mailid, password)
         UserManager.AddUser(user)
 
-    def GuestLogin(self):
-        pass
+    def Guest(self):
+        print('You are at the guest block')
+        exit()
+    
+    def Exit(self):
+        print("Thank you, visit again😊")
+        exit()
 
     def ValidateOption(self, option):
-        if option == 1:
-            self.Login()
-        elif option == 2:
-            self.Register()
-        elif option == 3:
-            self.GuestLogin()
-        else:
-            print("Thank you, visit again😊")
-            exit()
-
+        getattr(self, option)()
+        
 
 class FoodApp:
     LoginOptions = {1: "Login", 2: "Register", 3: "Guest", 4: "Exit \n"}
@@ -58,6 +56,6 @@ class FoodApp:
             choice = int(input("Enter your choice: "))
             try:
                 print(f"Your choice is => {FoodApp.LoginOptions[choice]}")
-                loginSystem.ValidateOption(choice)
-            except ValueError:
+                loginSystem.ValidateOption(FoodApp.LoginOptions[choice])
+            except (ValueError, KeyError):
                 print("Invalid Choice......Please enter valid choice")
