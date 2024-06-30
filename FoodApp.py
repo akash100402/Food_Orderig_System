@@ -14,6 +14,7 @@ class LoginSystem:
         password=input("Your password: ")
         
         user=User(name,email,mobile,password)
+        UserManager.AddUser(user)
         
 
     def GuestLogin(self):
